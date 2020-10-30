@@ -65,6 +65,24 @@ ICPMS_merged
 ```{r, warning=FALSE}
 rm(list=setdiff(ls(), "ICPMS_merged"))
 ```
+
+```{r, AA data}
+library(readr)
+AA_Data <- read_csv("~/ICPMS_lab_chem_313/data/AA_Data.csv", skip = 4, na="N/A")
+
+AA_Data<-AA_Data%>%
+  rename(Sample.Key = "Sample Key")
+
+sample_key <- read.csv("~/ICPMS_lab_chem_313/data/Sample_Key.csv", skip=0)
+
+AA_merged <- merge(AA_Data, sample_key)
+AA_merged
+
+blank_data <- filter(AA_merged, Type == "CalStd4")
+blank_data
+```
+
+```
 ## Including Plots
 
 You can also embed plots, for example:
