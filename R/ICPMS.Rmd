@@ -80,6 +80,7 @@ AA_merged
 
 blank_data <- filter(AA_merged, Type == "CalStd4")
 blank_data
+saveRDS(object, file="data/AA_merged.rds")
 ```
 
 ```
